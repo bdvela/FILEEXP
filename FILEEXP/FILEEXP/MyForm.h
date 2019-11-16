@@ -1,4 +1,7 @@
 #pragma once
+#include "FILEEXPLORER.h"
+#include <msclr\marshal_cppstd.h>
+
 
 namespace FILEEXP {
 
@@ -8,7 +11,8 @@ namespace FILEEXP {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace msclr::interop;
+	
 	/// <summary>
 	/// Resumen de MyForm
 	/// </summary>
@@ -21,8 +25,9 @@ namespace FILEEXP {
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			fileexplorer = new FILEEXPLORER();
 		}
-
+		
 	protected:
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
@@ -34,13 +39,15 @@ namespace FILEEXP {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TextBox^  textBox1;
+	private: System::Windows::Forms::TextBox^  txtRUTA;
+	protected:
+	private:
+		FILEEXPLORER* fileexplorer;
 	protected:
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Button^  button1;
 	private: System::Windows::Forms::Label^  label2;
-
-	private:
+	private: System::Windows::Forms::ListBox^  listBox1;
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
@@ -53,18 +60,19 @@ namespace FILEEXP {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->txtRUTA = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->SuspendLayout();
 			// 
-			// textBox1
+			// txtRUTA
 			// 
-			this->textBox1->Location = System::Drawing::Point(65, 79);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(503, 20);
-			this->textBox1->TabIndex = 0;
+			this->txtRUTA->Location = System::Drawing::Point(65, 79);
+			this->txtRUTA->Name = L"txtRUTA";
+			this->txtRUTA->Size = System::Drawing::Size(503, 20);
+			this->txtRUTA->TabIndex = 0;
 			// 
 			// label1
 			// 
@@ -96,15 +104,24 @@ namespace FILEEXP {
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"EXPLORADOR DE ARCHIVOS";
 			// 
+			// listBox1
+			// 
+			this->listBox1->FormattingEnabled = true;
+			this->listBox1->Location = System::Drawing::Point(26, 197);
+			this->listBox1->Name = L"listBox1";
+			this->listBox1->Size = System::Drawing::Size(698, 342);
+			this->listBox1->TabIndex = 4;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(750, 139);
+			this->ClientSize = System::Drawing::Size(750, 116);
+			this->Controls->Add(this->listBox1);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->txtRUTA);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->ResumeLayout(false);
@@ -113,8 +130,13 @@ namespace FILEEXP {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-		
-
+		if (!(String::IsNullOrEmpty(txtRUTA->Text)) && is_directory(marshal_as<string>(txtRUTA->Text))) {
+			this->Height = 600;
+			String ^ ruta = txtRUTA->Text;
+			string path = marshal_as<string>(ruta); //CONVERTIR DE String^ A string
+			fileexplorer->scan(path); //SCANEAR LA RUTA INDICADA
+									  //TAMAREEEEEEEEEEE
+		}
 	}
 	};
 }

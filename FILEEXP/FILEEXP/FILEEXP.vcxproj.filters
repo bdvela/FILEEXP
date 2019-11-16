@@ -21,10 +21,10 @@
     <ClInclude Include="Archivo.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="FILEEXP.h">
+    <ClInclude Include="MyForm.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="MyForm.h">
+    <ClInclude Include="FILEEXPLORER.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,5 +32,10 @@
     <ClCompile Include="MyForm.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MyForm.resx">
+      <Filter>Archivos de recursos</Filter>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

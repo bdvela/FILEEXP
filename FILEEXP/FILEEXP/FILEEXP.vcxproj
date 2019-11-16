@@ -24,6 +24,7 @@
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>FILEEXP</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>FILEEXP</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -131,7 +132,7 @@
   <ItemGroup>
     <ClInclude Include="Archivo.h" />
     <ClInclude Include="AVLTree.h" />
-    <ClInclude Include="FILEEXP.h" />
+    <ClInclude Include="FILEEXPLORER.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
