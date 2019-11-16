@@ -101,6 +101,7 @@ class AVLTree {
 		balance(n);
 		n->updateH();
 	}
+	
 
 public:
 
@@ -122,5 +123,6 @@ public:
 		add(root, e);
 		++length;
 	}
+
 };
 
