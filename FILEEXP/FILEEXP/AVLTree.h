@@ -3,6 +3,7 @@
 #include <functional>
 #include <algorithm>
 using namespace std;
+
 template <typename T, typename R = T>
 
 class AVLTree {
