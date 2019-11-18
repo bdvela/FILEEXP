@@ -1,11 +1,12 @@
 #pragma once
 
-#include <experimental/filesystem>
 #include <vector>
 #include <functional>
 #include "Archivo.h"
 #include "AVLTree.h"
 #include <string>
+#include <filesystem>
+#include <experimental\filesystem>
 
 using namespace std;
 using namespace std::experimental::filesystem;
@@ -64,10 +65,10 @@ public:
 			Archivo* archivo = new Archivo(name, extension, date, size, ruta);
 			
 			//AÑADIMOS LOS ARCHIVOS A SUS RESPECTIVOS ÁRBOLES
-			Names_tree->     Add(archivo);
+			Names_tree->Add(archivo);
 			Extensions_tree->Add(archivo);
-			Dates_tree->     Add(archivo);
-			Sizes_tree->     Add(archivo);
+			Dates_tree->Add(archivo);
+			Sizes_tree->Add(archivo);
 		}
 	}
 	      AVLTree<Archivo*, string>*Gettree_nombre() {
@@ -85,5 +86,4 @@ public:
 		  AVLTree<Archivo*, long long>*Gettree_tamaño() {
 			  return Sizes_tree;
 		  }
-
 };
