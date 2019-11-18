@@ -6,18 +6,21 @@
 #include "Archivo.h"
 #include "AVLTree.h"
 #include <string>
+
 using namespace std;
 using namespace std::experimental::filesystem;
 
 class FILEEXPLORER {
 
-
 	AVLTree<Archivo*, string>*Names_tree;
 	AVLTree<Archivo*, string>*Extensions_tree;
 	AVLTree<Archivo*, string>*Dates_tree;
 	AVLTree<Archivo*, long long>*Sizes_tree;
+
 public:
+
 	FILEEXPLORER() {
+
 		//ARBOL PARA NOMBRES
 		auto KeyN = [](Archivo* name) {return name->get_nombre(); };
 		Names_tree = new AVLTree<Archivo*, string>(KeyN);
@@ -35,7 +38,9 @@ public:
 	}
 
 	/*FUNCIÓN PARA SCANEAR LA RUTA SOLICITADA POR EL USUARIO*/
+
 	void scan(string path) {
+
 		for (const auto & entry : recursive_directory_iterator(path)) {
 			string ruta = entry.path().string();
 			//ASIGNAMOS EL NOMBRE DEL ARCHIVO AL STRING NOMBRE
@@ -57,10 +62,28 @@ public:
 			//CREAMOS EL ARCHIVO ENVIANDOLE LOS PARÁMETROS
 			Archivo* archivo = new Archivo(name, extension, date, size, ruta);
 			//AÑADIMOS LOS ARCHIVOS A SUS RESPECTIVOS ÁRBOLES
+
 			Names_tree->Add(archivo);
 			Extensions_tree->Add(archivo);
 			Dates_tree->Add(archivo);
 			Sizes_tree->Add(archivo);
 		}
 	}
+
+	      AVLTree<Archivo*, string>*Gettree_nombre() {
+		    return Names_tree;
+		  }
+		  
+		  AVLTree<Archivo*, string>*Gettre_extension() {
+			  return Extensions_tree;
+		  }
+
+		  AVLTree<Archivo*, string>*Gettre_fecha() {
+			  return Dates_tree;
+		  }
+
+		  AVLTree<Archivo*, long long>*Gettree_tamaño() {
+			  return Sizes_tree;
+		  }
+
 };

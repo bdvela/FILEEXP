@@ -2,6 +2,8 @@
 
 #include <functional>
 #include <algorithm>
+#include <vector>
+
 using namespace std;
 
 template <typename T, typename R = T>
@@ -103,6 +105,9 @@ class AVLTree {
 		n->updateH();
 	}
 
+
+
+
 public:
 
 	AVLTree(function<R(T)>key = [](T a) {return a; }) : root(nullptr), length(0), key(key) {}
@@ -123,5 +128,23 @@ public:
 		add(root, e);
 		++length;
 	}
+
+	Nodo*Get_raiz() {
+
+		return root;
+	}
+
+	vector<T>Preorden(vector<T>vec, Nodo*nodo) {
+
+		if (nodo == NULL) {
+			return vec;
+		}
+
+		vec.push_back(nodo->e);
+
+		return Preorden(vec, nodo->l);
+		return Preorden(vec, nodo->r);
+	}
+
 };
 

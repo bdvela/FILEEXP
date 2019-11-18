@@ -12,6 +12,7 @@ namespace FILEEXP {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace msclr::interop;
+	using namespace System::IO;
 	
 	/// <summary>
 	/// Resumen de MyForm
@@ -47,7 +48,7 @@ namespace FILEEXP {
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Button^  button1;
 	private: System::Windows::Forms::Label^  label2;
-	private: System::Windows::Forms::ListBox^  listBox1;
+
 	private: System::Windows::Forms::TextBox^  textBox1;
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::TextBox^  textBox2;
@@ -64,7 +65,13 @@ namespace FILEEXP {
 	private: System::Windows::Forms::Button^  button7;
 	private: System::Windows::Forms::Label^  label4;
 	private: System::Windows::Forms::Button^  button8;
-	private: System::Windows::Forms::Button^  button9;
+	private: System::Windows::Forms::ListBox^  listBox1;
+
+
+
+
+
+
 
 			 /// <summary>
 		/// Variable del diseñador necesaria.
@@ -82,7 +89,6 @@ namespace FILEEXP {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
@@ -99,7 +105,7 @@ namespace FILEEXP {
 			this->button7 = (gcnew System::Windows::Forms::Button());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->button8 = (gcnew System::Windows::Forms::Button());
-			this->button9 = (gcnew System::Windows::Forms::Button());
+			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->SuspendLayout();
 			// 
 			// txtRUTA
@@ -138,14 +144,6 @@ namespace FILEEXP {
 			this->label2->Size = System::Drawing::Size(536, 49);
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"EXPLORADOR DE ARCHIVOS";
-			// 
-			// listBox1
-			// 
-			this->listBox1->FormattingEnabled = true;
-			this->listBox1->Location = System::Drawing::Point(65, 121);
-			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(357, 394);
-			this->listBox1->TabIndex = 4;
 			// 
 			// textBox1
 			// 
@@ -287,21 +285,20 @@ namespace FILEEXP {
 			this->button8->Text = L"Ascendente";
 			this->button8->UseVisualStyleBackColor = true;
 			// 
-			// button9
+			// listBox1
 			// 
-			this->button9->Location = System::Drawing::Point(601, 455);
-			this->button9->Name = L"button9";
-			this->button9->Size = System::Drawing::Size(96, 23);
-			this->button9->TabIndex = 28;
-			this->button9->Text = L"Descendente";
-			this->button9->UseVisualStyleBackColor = true;
+			this->listBox1->FormattingEnabled = true;
+			this->listBox1->Location = System::Drawing::Point(65, 137);
+			this->listBox1->Name = L"listBox1";
+			this->listBox1->Size = System::Drawing::Size(357, 342);
+			this->listBox1->TabIndex = 28;
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(750, 525);
-			this->Controls->Add(this->button9);
+			this->ClientSize = System::Drawing::Size(849, 596);
+			this->Controls->Add(this->listBox1);
 			this->Controls->Add(this->button8);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->button7);
@@ -318,7 +315,6 @@ namespace FILEEXP {
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->textBox1);
-			this->Controls->Add(this->listBox1);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
@@ -330,15 +326,25 @@ namespace FILEEXP {
 
 		}
 #pragma endregion
-	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-
+	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {		
+		
 		if (!(String::IsNullOrEmpty(txtRUTA->Text)) && is_directory(marshal_as<string>(txtRUTA->Text))) {
 			this->Height = 600;
 			String ^ ruta = txtRUTA->Text;
 			string path = marshal_as<string>(ruta); //CONVERTIR DE String^ A string
 			fileexplorer->scan(path); //SCANEAR LA RUTA INDICADA
-									  //TAMAREEEEEEEEEEE
+			vector<Archivo*> vec = fileexplorer->Gettree_nombre()->Preorden(vec, fileexplorer->Gettree_nombre()->Get_raiz());
+			
+			for each (Archivo* var in vec)
+			{
+				listBox1->Items->Add(marshal_as<String^>(var->get_nombre()));
+			}
 		}
 	}
-	};
+	private: System::Void listBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+
+
+
+	}
+};
 }
