@@ -6,7 +6,6 @@
 #include "AVLTree.h"
 #include <string>
 #include <filesystem>
-#include <experimental/filesystem>
 
 using namespace std;
 using namespace std::experimental::filesystem;
@@ -53,8 +52,6 @@ public:
 			time_t FM = decltype(modificationdate)::clock::to_time_t(modificationdate);
 			string date = asctime(localtime(&FM));
 			
-
-
 			//ASIGNAMOS EL TAMAÑO DEL ARCHIVO AL LONG LONG CREADO
 			long long size = -1;
 			if (is_directory(status(entry.path()))) {
