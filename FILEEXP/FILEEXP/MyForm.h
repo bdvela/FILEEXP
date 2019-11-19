@@ -384,7 +384,7 @@ namespace FILEEXP {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {		
-		
+		listBox1->Items->Clear();
 		if (!(String::IsNullOrEmpty(txtRUTA->Text)) && is_directory(marshal_as<string>(txtRUTA->Text))) {
 			this->Height = 600;
 			String ^ ruta = txtRUTA->Text;
