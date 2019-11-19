@@ -85,7 +85,7 @@ namespace FILEEXP {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->txtRUTA = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -336,6 +336,7 @@ namespace FILEEXP {
 			this->button8->TabIndex = 27;
 			this->button8->Text = L"Ascendente";
 			this->button8->UseVisualStyleBackColor = false;
+			this->button8->Click += gcnew System::EventHandler(this, &MyForm::button8_Click);
 			// 
 			// listBox1
 			// 
@@ -346,7 +347,7 @@ namespace FILEEXP {
 			this->listBox1->Location = System::Drawing::Point(65, 137);
 			this->listBox1->Name = L"listBox1";
 			this->listBox1->Size = System::Drawing::Size(357, 342);
-			this->listBox1->TabIndex = 28;
+			this->listBox1->TabIndex = 100;
 			// 
 			// MyForm
 			// 
@@ -376,6 +377,7 @@ namespace FILEEXP {
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->txtRUTA);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"MyForm";
 			this->Text = L"Trabajo final";
 			this->ResumeLayout(false);
@@ -383,8 +385,9 @@ namespace FILEEXP {
 
 		}
 #pragma endregion
+	//Boton para escanear la ruta
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {		
-		
+		listBox1->Items->Clear();
 		if (!(String::IsNullOrEmpty(txtRUTA->Text)) && is_directory(marshal_as<string>(txtRUTA->Text))) {
 			this->Height = 600;
 			String ^ ruta = txtRUTA->Text;
@@ -403,5 +406,9 @@ namespace FILEEXP {
 
 
 	}
-};
+	//Boton para ordenar ASCENDENTE
+    private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e) {
+		listBox1->Sorted = true;
+    }
+    };
 }
