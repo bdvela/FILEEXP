@@ -12,6 +12,7 @@ using namespace std;
 using namespace std::experimental::filesystem;
 
 class FILEEXPLORER {
+
 	AVLTree<Archivo*, string>*Names_tree;
 	AVLTree<Archivo*, string>*Extensions_tree;
 	AVLTree<Archivo*, string>*Dates_tree;
