@@ -377,6 +377,7 @@ namespace FILEEXP {
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->txtRUTA);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"MyForm";
 			this->Text = L"Trabajo final";
 			this->ResumeLayout(false);
