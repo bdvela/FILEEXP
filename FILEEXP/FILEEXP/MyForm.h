@@ -336,6 +336,7 @@ namespace FILEEXP {
 			this->button8->TabIndex = 27;
 			this->button8->Text = L"Ascendente";
 			this->button8->UseVisualStyleBackColor = false;
+			this->button8->Click += gcnew System::EventHandler(this, &MyForm::button8_Click);
 			// 
 			// listBox1
 			// 
@@ -383,6 +384,7 @@ namespace FILEEXP {
 
 		}
 #pragma endregion
+	//Boton para escanear la ruta
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {		
 		listBox1->Items->Clear();
 		if (!(String::IsNullOrEmpty(txtRUTA->Text)) && is_directory(marshal_as<string>(txtRUTA->Text))) {
@@ -403,5 +405,9 @@ namespace FILEEXP {
 
 
 	}
-};
+	//Boton para ordenar ASCENDENTE
+    private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e) {
+		listBox1->Sorted = true;
+    }
+    };
 }
