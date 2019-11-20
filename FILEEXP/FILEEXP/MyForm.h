@@ -405,9 +405,13 @@ namespace FILEEXP {
 		listBox1->Items->Clear();
 		if (!(String::IsNullOrEmpty(txtRUTA->Text)) && is_directory(marshal_as<string>(txtRUTA->Text))) {
 			this->Height = 600;
+
 			String ^ ruta = txtRUTA->Text;
+
 			string path = marshal_as<string>(ruta); //CONVERTIR DE String^ A string
+
 			fileexplorer->scan(path); //SCANEAR LA RUTA INDICADA
+
 			vector<Archivo*> vec = fileexplorer->Gettree_nombre()->Preorden(vec, fileexplorer->Gettree_nombre()->Get_raiz());
 			
 			for each (Archivo* var in vec)
@@ -417,7 +421,6 @@ namespace FILEEXP {
 		}
 	}
 	private: System::Void listBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-
 
 
 	}
