@@ -441,6 +441,7 @@ namespace FILEEXP {
 			this->button6->TabIndex = 36;
 			this->button6->Text = L"DESCENDENTE";
 			this->button6->UseVisualStyleBackColor = true;
+			this->button6->Click += gcnew System::EventHandler(this, &MyForm::button6_Click);
 			// 
 			// checkBox1
 			// 
@@ -500,7 +501,7 @@ namespace FILEEXP {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(750, 121);
+			this->ClientSize = System::Drawing::Size(750, 535);
 			this->Controls->Add(this->checkBox6);
 			this->Controls->Add(this->checkBox5);
 			this->Controls->Add(this->checkBox4);
@@ -704,7 +705,7 @@ private: System::Void label10_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void label9_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
 private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
-
+	//ORDENAMIENTO ASCENDENTE SELECTION SORT
 	vector<string> vec;
 	for (long long i = 0; i < listBox1->Items->Count; i++) {
 		vec.push_back(marshal_as<string>(listBox1->Items[i]->ToString()));
@@ -725,6 +726,28 @@ private: System::Void button5_Click(System::Object^  sender, System::EventArgs^ 
 			listBox1->Items->Add(marshal_as<String^>(vec[i]));
 		}
 	//listBox1->Sorted = true;
+}
+private: System::Void button6_Click(System::Object^  sender, System::EventArgs^  e) {
+	//ORDENAMIENTO DESCENDENTE SELECTION SORT
+	vector<string> vec;
+	for (long long i = 0; i < listBox1->Items->Count; i++) {
+		vec.push_back(marshal_as<string>(listBox1->Items[i]->ToString()));
+	}
+	listBox1->Items->Clear();
+	string key;
+	int j;
+	for (int i = 1; i < vec.size(); i++) {
+		key = vec[i];
+		j = i - 1;
+		while (j >= 0 && vec[j] < key) {
+			vec[j + 1] = vec[j];
+			j = j - 1;
+		}
+		vec[j + 1] = key;
+	}
+	for (int i = 0; i < vec.size(); i++) {
+		listBox1->Items->Add(marshal_as<String^>(vec[i]));
+	}
 }
 };
 }
