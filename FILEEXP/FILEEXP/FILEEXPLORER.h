@@ -16,7 +16,9 @@ class FILEEXPLORER {
 	AVLTree<Archivo*, string>*Names_tree;
 	AVLTree<Archivo*, string>*Extensions_tree;
 	AVLTree<Archivo*, string>*Dates_tree;
+	AVLTree<Archivo*, string>*rname_tree;
 	AVLTree<Archivo*, long long>*Sizes_tree;
+
 
 public:
 	FILEEXPLORER() {
@@ -36,11 +38,17 @@ public:
 		//ARBOL PARA LOS TAMAÑOS
 		auto KeyS = [](Archivo* size) {return size->get_tamaño(); };
 		Sizes_tree = new AVLTree<Archivo*, long long>(KeyS);
+
+
+		auto KeyM = [](Archivo* nombrar) {return nombrar->get_rname(); };
+		rname_tree = new AVLTree<Archivo*, string>(KeyM);
 	}
 
 	/*FUNCIÓN PARA SCANEAR LA RUTA SOLICITADA POR EL USUARIO*/
 	void scan(string path) {
+
 		for (const auto & entry : recursive_directory_iterator(path)) {
+
 			string ruta = entry.path().string();
 			
 			//ASIGNAMOS EL NOMBRE DEL ARCHIVO AL STRING NOMBRE
@@ -49,6 +57,8 @@ public:
 			//ASIGNAMOS LA EXTENSION DEL ARCHIVO AL STRING EXTENSION
 			string extension = entry.path().extension().string();
 			
+			string rname = entry.path().filename().string();
+
 			//ASIGNAMOS LA FECHA DEL ARCHIVO AL STRING CREADO
 			auto modificationdate = last_write_time(entry.path());
 			time_t FM = decltype(modificationdate)::clock::to_time_t(modificationdate);
@@ -63,27 +73,34 @@ public:
 			}
 			
 			//CREAMOS EL ARCHIVO ENVIANDOLE LOS PARÁMETROS
-			Archivo* archivo = new Archivo(name, extension, date, size, ruta);
+			Archivo* archivo = new Archivo(name, extension, date, size, rname,ruta);
 			
 			//AÑADIMOS LOS ARCHIVOS A SUS RESPECTIVOS ÁRBOLES
 			Names_tree->Add(archivo);
 			Extensions_tree->Add(archivo);
 			Dates_tree->Add(archivo);
 			Sizes_tree->Add(archivo);
+			rname_tree->Add(archivo);
 		}
 	}
+
+	//Metodo para retornar por nombre
+
 	      AVLTree<Archivo*, string>*Gettree_nombre() {
 		    return Names_tree;
 		  }
 		  
+		  //Metodo para retornar por Extension
 		  AVLTree<Archivo*, string>*Gettre_extension() {
 			  return Extensions_tree;
 		  }
 
+		  //Metodo para retornar por dato
 		  AVLTree<Archivo*, string>*Gettre_fecha() {
 			  return Dates_tree;
 		  }
 
+		  //Metodo para retornar el tamaño
 		  AVLTree<Archivo*, long long>*Gettree_tamaño() {
 			  return Sizes_tree;
 		  }
