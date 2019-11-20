@@ -1,8 +1,6 @@
 #pragma once
 #include "FILEEXPLORER.h"
 #include <msclr\marshal_cppstd.h>
-
-
 namespace FILEEXP {
 
 	using namespace System;
@@ -13,7 +11,6 @@ namespace FILEEXP {
 	using namespace System::Drawing;
 	using namespace msclr::interop;
 	using namespace System::IO;
-	
 	/// <summary>
 	/// Resumen de MyForm
 	/// </summary>
@@ -26,9 +23,9 @@ namespace FILEEXP {
 			//
 			//TODO: agregar código de constructor aquí
 			//
-			fileexplorer = new FILEEXPLORER();
+			FX = new FILEEXPLORER();
 		}
-		
+
 	protected:
 		/// <summary>
 		/// Limpiar los recursos que se estén usando.
@@ -40,41 +37,58 @@ namespace FILEEXP {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TextBox^  txtRUTA;
-	protected:
 	private:
-		FILEEXPLORER* fileexplorer;
+		FILEEXPLORER* FX;
+	private: System::Windows::Forms::TextBox^  txtRUTA;
+
 	protected:
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Button^  button1;
 	private: System::Windows::Forms::Label^  label2;
-
-	private: System::Windows::Forms::TextBox^  textBox1;
+	private: System::Windows::Forms::ListBox^  listBox1;
 	private: System::Windows::Forms::Label^  label3;
+	private: System::Windows::Forms::TextBox^  txtBUSCAR;
+
+	private: System::Windows::Forms::Button^  button2;
+	private: System::Windows::Forms::RadioButton^  rbNOMBRE;
+	private: System::Windows::Forms::RadioButton^  rbEXTENSION;
+	private: System::Windows::Forms::RadioButton^  rbTAMAÑO;
+
+
+
+	private: System::Windows::Forms::PictureBox^  pictureBox1;
+	private: System::Windows::Forms::Button^  button3;
 	private: System::Windows::Forms::TextBox^  textBox2;
+	private: System::Windows::Forms::Label^  label4;
+	private: System::Windows::Forms::PictureBox^  pictureBox2;
+	private: System::Windows::Forms::Button^  button4;
 	private: System::Windows::Forms::TextBox^  textBox3;
+	private: System::Windows::Forms::PictureBox^  pictureBox3;
+	private: System::Windows::Forms::Label^  label5;
+	private: System::Windows::Forms::RadioButton^  rbFECHA;
+
+	private: System::Windows::Forms::Label^  label6;
 	private: System::Windows::Forms::Label^  label7;
+	private: System::Windows::Forms::Label^  label8;
 	private: System::Windows::Forms::TextBox^  textBox4;
 	private: System::Windows::Forms::TextBox^  textBox5;
 	private: System::Windows::Forms::TextBox^  textBox6;
-	private: System::Windows::Forms::Button^  button2;
-	private: System::Windows::Forms::Button^  button3;
-	private: System::Windows::Forms::Button^  button4;
+	private: System::Windows::Forms::TextBox^  textBox7;
+	private: System::Windows::Forms::TextBox^  textBox8;
+	private: System::Windows::Forms::TextBox^  textBox9;
+	private: System::Windows::Forms::Label^  label9;
+	private: System::Windows::Forms::Label^  label10;
+	private: System::Windows::Forms::Label^  label11;
+	private: System::Windows::Forms::Label^  label12;
 	private: System::Windows::Forms::Button^  button5;
 	private: System::Windows::Forms::Button^  button6;
-	private: System::Windows::Forms::Button^  button7;
-	private: System::Windows::Forms::Label^  label4;
-	private: System::Windows::Forms::Button^  button8;
-	private: System::Windows::Forms::ListBox^  listBox1;
-	private: System::Windows::Forms::Button^  button9;
 
 
 
 
 
-
-
-			 /// <summary>
+	private:
+		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
 		System::ComponentModel::Container ^components;
@@ -86,347 +100,520 @@ namespace FILEEXP {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->txtRUTA = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->txtBUSCAR = (gcnew System::Windows::Forms::TextBox());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->rbNOMBRE = (gcnew System::Windows::Forms::RadioButton());
+			this->rbEXTENSION = (gcnew System::Windows::Forms::RadioButton());
+			this->rbTAMAÑO = (gcnew System::Windows::Forms::RadioButton());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->rbFECHA = (gcnew System::Windows::Forms::RadioButton());
+			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox9 = (gcnew System::Windows::Forms::TextBox());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button6 = (gcnew System::Windows::Forms::Button());
-			this->button7 = (gcnew System::Windows::Forms::Button());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->button8 = (gcnew System::Windows::Forms::Button());
-			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
-			this->button9 = (gcnew System::Windows::Forms::Button());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// txtRUTA
 			// 
-			this->txtRUTA->BackColor = System::Drawing::Color::Black;
-			this->txtRUTA->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 8.25F));
-			this->txtRUTA->ForeColor = System::Drawing::Color::White;
-			this->txtRUTA->Location = System::Drawing::Point(268, 76);
+			this->txtRUTA->Location = System::Drawing::Point(65, 79);
 			this->txtRUTA->Name = L"txtRUTA";
-			this->txtRUTA->Size = System::Drawing::Size(357, 22);
+			this->txtRUTA->Size = System::Drawing::Size(503, 20);
 			this->txtRUTA->TabIndex = 0;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::Color::Transparent;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 8.25F));
-			this->label1->ForeColor = System::Drawing::Color::White;
-			this->label1->Location = System::Drawing::Point(197, 79);
+			this->label1->Location = System::Drawing::Point(23, 82);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(37, 13);
+			this->label1->Size = System::Drawing::Size(36, 13);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Ruta :";
 			// 
 			// button1
 			// 
-			this->button1->BackColor = System::Drawing::Color::Black;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 8.25F));
-			this->button1->ForeColor = System::Drawing::Color::White;
-			this->button1->Location = System::Drawing::Point(661, 75);
+			this->button1->Location = System::Drawing::Point(595, 78);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(97, 20);
+			this->button1->Size = System::Drawing::Size(143, 20);
 			this->button1->TabIndex = 2;
-			this->button1->Text = L"Buscar archivo";
-			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Text = L"ABRIR";
+			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->BackColor = System::Drawing::Color::Transparent;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 30, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
-				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::Color::White;
-			this->label2->Location = System::Drawing::Point(175, 9);
+			this->label2->Font = (gcnew System::Drawing::Font(L"Arial Rounded MT Bold", 30, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(87, 17);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(552, 54);
+			this->label2->Size = System::Drawing::Size(598, 46);
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"EXPLORADOR DE ARCHIVOS";
 			// 
-			// textBox1
+			// listBox1
 			// 
-			this->textBox1->BackColor = System::Drawing::Color::Black;
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 8.25F));
-			this->textBox1->ForeColor = System::Drawing::Color::White;
-			this->textBox1->Location = System::Drawing::Point(125, 180);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(109, 22);
-			this->textBox1->TabIndex = 6;
+			this->listBox1->FormattingEnabled = true;
+			this->listBox1->Location = System::Drawing::Point(26, 126);
+			this->listBox1->Name = L"listBox1";
+			this->listBox1->ScrollAlwaysVisible = true;
+			this->listBox1->Size = System::Drawing::Size(464, 381);
+			this->listBox1->TabIndex = 4;
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
 			this->label3->BackColor = System::Drawing::Color::Transparent;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 20.25F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic))));
-			this->label3->ForeColor = System::Drawing::Color::White;
-			this->label3->Location = System::Drawing::Point(5, 128);
+			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(570, 135);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(251, 37);
-			this->label3->TabIndex = 7;
-			this->label3->Text = L"Filtrar por nombre";
+			this->label3->Size = System::Drawing::Size(105, 25);
+			this->label3->TabIndex = 5;
+			this->label3->Text = L"BUSCAR";
 			// 
-			// textBox2
+			// txtBUSCAR
 			// 
-			this->textBox2->BackColor = System::Drawing::Color::Black;
-			this->textBox2->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 8.25F));
-			this->textBox2->ForeColor = System::Drawing::Color::White;
-			this->textBox2->Location = System::Drawing::Point(125, 224);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(109, 22);
-			this->textBox2->TabIndex = 11;
-			// 
-			// textBox3
-			// 
-			this->textBox3->BackColor = System::Drawing::Color::Black;
-			this->textBox3->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 8.25F));
-			this->textBox3->ForeColor = System::Drawing::Color::White;
-			this->textBox3->Location = System::Drawing::Point(125, 277);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(109, 22);
-			this->textBox3->TabIndex = 12;
-			// 
-			// label7
-			// 
-			this->label7->AutoSize = true;
-			this->label7->BackColor = System::Drawing::Color::Transparent;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 20.25F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic))));
-			this->label7->ForeColor = System::Drawing::Color::White;
-			this->label7->Location = System::Drawing::Point(637, 128);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(249, 37);
-			this->label7->TabIndex = 13;
-			this->label7->Text = L"Filtrar por tamaño";
-			// 
-			// textBox4
-			// 
-			this->textBox4->BackColor = System::Drawing::Color::Black;
-			this->textBox4->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 8.25F));
-			this->textBox4->ForeColor = System::Drawing::Color::White;
-			this->textBox4->Location = System::Drawing::Point(733, 180);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(118, 22);
-			this->textBox4->TabIndex = 17;
-			// 
-			// textBox5
-			// 
-			this->textBox5->BackColor = System::Drawing::Color::Black;
-			this->textBox5->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 8.25F));
-			this->textBox5->ForeColor = System::Drawing::Color::White;
-			this->textBox5->Location = System::Drawing::Point(733, 225);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(118, 22);
-			this->textBox5->TabIndex = 18;
-			// 
-			// textBox6
-			// 
-			this->textBox6->BackColor = System::Drawing::Color::Black;
-			this->textBox6->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 8.25F));
-			this->textBox6->ForeColor = System::Drawing::Color::White;
-			this->textBox6->Location = System::Drawing::Point(733, 266);
-			this->textBox6->Name = L"textBox6";
-			this->textBox6->Size = System::Drawing::Size(118, 22);
-			this->textBox6->TabIndex = 19;
+			this->txtBUSCAR->Location = System::Drawing::Point(514, 219);
+			this->txtBUSCAR->Name = L"txtBUSCAR";
+			this->txtBUSCAR->Size = System::Drawing::Size(145, 20);
+			this->txtBUSCAR->TabIndex = 6;
 			// 
 			// button2
 			// 
-			this->button2->BackColor = System::Drawing::Color::Black;
-			this->button2->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 8.25F));
-			this->button2->ForeColor = System::Drawing::Color::White;
-			this->button2->Location = System::Drawing::Point(9, 178);
+			this->button2->Location = System::Drawing::Point(664, 219);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(97, 23);
-			this->button2->TabIndex = 20;
-			this->button2->Text = L"Empieza con";
-			this->button2->UseVisualStyleBackColor = false;
+			this->button2->Size = System::Drawing::Size(68, 19);
+			this->button2->TabIndex = 7;
+			this->button2->Text = L"BUSCAR";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
+			// 
+			// rbNOMBRE
+			// 
+			this->rbNOMBRE->AutoSize = true;
+			this->rbNOMBRE->Location = System::Drawing::Point(530, 168);
+			this->rbNOMBRE->Name = L"rbNOMBRE";
+			this->rbNOMBRE->Size = System::Drawing::Size(62, 17);
+			this->rbNOMBRE->TabIndex = 8;
+			this->rbNOMBRE->TabStop = true;
+			this->rbNOMBRE->Text = L"Nombre";
+			this->rbNOMBRE->UseVisualStyleBackColor = true;
+			// 
+			// rbEXTENSION
+			// 
+			this->rbEXTENSION->AutoSize = true;
+			this->rbEXTENSION->Location = System::Drawing::Point(530, 194);
+			this->rbEXTENSION->Name = L"rbEXTENSION";
+			this->rbEXTENSION->Size = System::Drawing::Size(71, 17);
+			this->rbEXTENSION->TabIndex = 9;
+			this->rbEXTENSION->TabStop = true;
+			this->rbEXTENSION->Text = L"Extensión";
+			this->rbEXTENSION->UseVisualStyleBackColor = true;
+			// 
+			// rbTAMAÑO
+			// 
+			this->rbTAMAÑO->AutoSize = true;
+			this->rbTAMAÑO->Location = System::Drawing::Point(633, 168);
+			this->rbTAMAÑO->Name = L"rbTAMAÑO";
+			this->rbTAMAÑO->Size = System::Drawing::Size(64, 17);
+			this->rbTAMAÑO->TabIndex = 10;
+			this->rbTAMAÑO->TabStop = true;
+			this->rbTAMAÑO->Text = L"Tamaño";
+			this->rbTAMAÑO->UseVisualStyleBackColor = true;
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->pictureBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->pictureBox1->Location = System::Drawing::Point(505, 127);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(236, 120);
+			this->pictureBox1->TabIndex = 11;
+			this->pictureBox1->TabStop = false;
 			// 
 			// button3
 			// 
-			this->button3->BackColor = System::Drawing::Color::Black;
-			this->button3->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 8.25F));
-			this->button3->ForeColor = System::Drawing::Color::White;
-			this->button3->Location = System::Drawing::Point(12, 224);
+			this->button3->Location = System::Drawing::Point(664, 352);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(97, 23);
-			this->button3->TabIndex = 21;
-			this->button3->Text = L"Finaliza con";
-			this->button3->UseVisualStyleBackColor = false;
+			this->button3->Size = System::Drawing::Size(68, 19);
+			this->button3->TabIndex = 14;
+			this->button3->Text = L"FILTRAR";
+			this->button3->UseVisualStyleBackColor = true;
 			// 
-			// button4
+			// textBox2
 			// 
-			this->button4->BackColor = System::Drawing::Color::Black;
-			this->button4->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 8.25F));
-			this->button4->ForeColor = System::Drawing::Color::White;
-			this->button4->Location = System::Drawing::Point(12, 275);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(97, 23);
-			this->button4->TabIndex = 22;
-			this->button4->Text = L"Contiene";
-			this->button4->UseVisualStyleBackColor = false;
-			// 
-			// button5
-			// 
-			this->button5->BackColor = System::Drawing::Color::Black;
-			this->button5->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 8.25F));
-			this->button5->ForeColor = System::Drawing::Color::White;
-			this->button5->Location = System::Drawing::Point(630, 178);
-			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(97, 23);
-			this->button5->TabIndex = 23;
-			this->button5->Text = L"Mayor a";
-			this->button5->UseVisualStyleBackColor = false;
-			// 
-			// button6
-			// 
-			this->button6->BackColor = System::Drawing::Color::Black;
-			this->button6->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 8.25F));
-			this->button6->ForeColor = System::Drawing::Color::White;
-			this->button6->Location = System::Drawing::Point(630, 222);
-			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(97, 23);
-			this->button6->TabIndex = 24;
-			this->button6->Text = L"Menor a";
-			this->button6->UseVisualStyleBackColor = false;
-			// 
-			// button7
-			// 
-			this->button7->BackColor = System::Drawing::Color::Black;
-			this->button7->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 8.25F));
-			this->button7->ForeColor = System::Drawing::Color::White;
-			this->button7->Location = System::Drawing::Point(630, 264);
-			this->button7->Name = L"button7";
-			this->button7->Size = System::Drawing::Size(97, 23);
-			this->button7->TabIndex = 25;
-			this->button7->Text = L"Igual a";
-			this->button7->UseVisualStyleBackColor = false;
+			this->textBox2->Location = System::Drawing::Point(514, 352);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(145, 20);
+			this->textBox2->TabIndex = 13;
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
 			this->label4->BackColor = System::Drawing::Color::Transparent;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 20.25F, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic))));
-			this->label4->ForeColor = System::Drawing::Color::White;
-			this->label4->Location = System::Drawing::Point(42, 425);
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->Location = System::Drawing::Point(514, 259);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(214, 37);
-			this->label4->TabIndex = 26;
-			this->label4->Text = L"Ordenado Final";
+			this->label4->Size = System::Drawing::Size(216, 20);
+			this->label4->TabIndex = 12;
+			this->label4->Text = L"FILTRAR POR NOMBRE";
 			// 
-			// button8
+			// pictureBox2
 			// 
-			this->button8->BackColor = System::Drawing::Color::Black;
-			this->button8->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 8.25F));
-			this->button8->ForeColor = System::Drawing::Color::White;
-			this->button8->Location = System::Drawing::Point(326, 439);
-			this->button8->Name = L"button8";
-			this->button8->Size = System::Drawing::Size(97, 23);
-			this->button8->TabIndex = 27;
-			this->button8->Text = L"Ascendente";
-			this->button8->UseVisualStyleBackColor = false;
-			this->button8->Click += gcnew System::EventHandler(this, &MyForm::button8_Click);
+			this->pictureBox2->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->pictureBox2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->pictureBox2->Location = System::Drawing::Point(505, 256);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(236, 120);
+			this->pictureBox2->TabIndex = 15;
+			this->pictureBox2->TabStop = false;
 			// 
-			// listBox1
+			// button4
 			// 
-			this->listBox1->BackColor = System::Drawing::Color::Black;
-			this->listBox1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 8.25F));
-			this->listBox1->ForeColor = System::Drawing::Color::White;
-			this->listBox1->FormattingEnabled = true;
-			this->listBox1->Location = System::Drawing::Point(268, 128);
-			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(356, 290);
-			this->listBox1->TabIndex = 28;
+			this->button4->Location = System::Drawing::Point(664, 483);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(68, 19);
+			this->button4->TabIndex = 18;
+			this->button4->Text = L"FILTRAR";
+			this->button4->UseVisualStyleBackColor = true;
 			// 
-			// button9
+			// textBox3
 			// 
-			this->button9->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
-			this->button9->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->button9->Location = System::Drawing::Point(478, 439);
-			this->button9->Name = L"button9";
-			this->button9->Size = System::Drawing::Size(97, 23);
-			this->button9->TabIndex = 29;
-			this->button9->Text = L"Descendente";
-			this->button9->UseVisualStyleBackColor = false;
+			this->textBox3->Location = System::Drawing::Point(514, 483);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(145, 20);
+			this->textBox3->TabIndex = 17;
+			// 
+			// pictureBox3
+			// 
+			this->pictureBox3->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
+			this->pictureBox3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->pictureBox3->Location = System::Drawing::Point(505, 387);
+			this->pictureBox3->Name = L"pictureBox3";
+			this->pictureBox3->Size = System::Drawing::Size(236, 120);
+			this->pictureBox3->TabIndex = 19;
+			this->pictureBox3->TabStop = false;
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->BackColor = System::Drawing::Color::Transparent;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->Location = System::Drawing::Point(514, 389);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(213, 20);
+			this->label5->TabIndex = 20;
+			this->label5->Text = L"FILTRAR POR TAMAÑO";
+			// 
+			// rbFECHA
+			// 
+			this->rbFECHA->AutoSize = true;
+			this->rbFECHA->Location = System::Drawing::Point(633, 193);
+			this->rbFECHA->Name = L"rbFECHA";
+			this->rbFECHA->Size = System::Drawing::Size(55, 17);
+			this->rbFECHA->TabIndex = 21;
+			this->rbFECHA->TabStop = true;
+			this->rbFECHA->Text = L"Fecha";
+			this->rbFECHA->UseVisualStyleBackColor = true;
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(525, 283);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(71, 13);
+			this->label6->TabIndex = 22;
+			this->label6->Text = L"Empieza con:";
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(526, 307);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(66, 13);
+			this->label7->TabIndex = 23;
+			this->label7->Text = L"Finaliza con:";
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(527, 329);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(52, 13);
+			this->label8->TabIndex = 24;
+			this->label8->Text = L"Contiene:";
+			// 
+			// textBox4
+			// 
+			this->textBox4->Location = System::Drawing::Point(613, 280);
+			this->textBox4->Name = L"textBox4";
+			this->textBox4->Size = System::Drawing::Size(118, 20);
+			this->textBox4->TabIndex = 25;
+			// 
+			// textBox5
+			// 
+			this->textBox5->Location = System::Drawing::Point(613, 304);
+			this->textBox5->Name = L"textBox5";
+			this->textBox5->Size = System::Drawing::Size(118, 20);
+			this->textBox5->TabIndex = 26;
+			// 
+			// textBox6
+			// 
+			this->textBox6->Location = System::Drawing::Point(613, 328);
+			this->textBox6->Name = L"textBox6";
+			this->textBox6->Size = System::Drawing::Size(118, 20);
+			this->textBox6->TabIndex = 27;
+			// 
+			// textBox7
+			// 
+			this->textBox7->Location = System::Drawing::Point(614, 459);
+			this->textBox7->Name = L"textBox7";
+			this->textBox7->Size = System::Drawing::Size(118, 20);
+			this->textBox7->TabIndex = 33;
+			// 
+			// textBox8
+			// 
+			this->textBox8->Location = System::Drawing::Point(614, 435);
+			this->textBox8->Name = L"textBox8";
+			this->textBox8->Size = System::Drawing::Size(118, 20);
+			this->textBox8->TabIndex = 32;
+			// 
+			// textBox9
+			// 
+			this->textBox9->Location = System::Drawing::Point(614, 411);
+			this->textBox9->Name = L"textBox9";
+			this->textBox9->Size = System::Drawing::Size(118, 20);
+			this->textBox9->TabIndex = 31;
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Location = System::Drawing::Point(528, 460);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(42, 13);
+			this->label9->TabIndex = 30;
+			this->label9->Text = L"Igual a:";
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(527, 438);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(40, 13);
+			this->label10->TabIndex = 29;
+			this->label10->Text = L"Menor:";
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(526, 414);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(39, 13);
+			this->label11->TabIndex = 28;
+			this->label11->Text = L"Mayor:";
+			// 
+			// label12
+			// 
+			this->label12->AutoSize = true;
+			this->label12->BackColor = System::Drawing::Color::Transparent;
+			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label12->Location = System::Drawing::Point(193, 518);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(106, 20);
+			this->label12->TabIndex = 34;
+			this->label12->Text = L"ORDENAR:";
+			// 
+			// button5
+			// 
+			this->button5->Location = System::Drawing::Point(318, 518);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(114, 19);
+			this->button5->TabIndex = 35;
+			this->button5->Text = L"ASCENDENTE";
+			this->button5->UseVisualStyleBackColor = true;
+			// 
+			// button6
+			// 
+			this->button6->Location = System::Drawing::Point(468, 517);
+			this->button6->Name = L"button6";
+			this->button6->Size = System::Drawing::Size(124, 19);
+			this->button6->TabIndex = 36;
+			this->button6->Text = L"DESCENDENTE";
+			this->button6->UseVisualStyleBackColor = true;
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(939, 596);
-			this->Controls->Add(this->button9);
-			this->Controls->Add(this->listBox1);
-			this->Controls->Add(this->button8);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->button7);
+			this->ClientSize = System::Drawing::Size(750, 115);
 			this->Controls->Add(this->button6);
 			this->Controls->Add(this->button5);
-			this->Controls->Add(this->button4);
-			this->Controls->Add(this->button3);
-			this->Controls->Add(this->button2);
+			this->Controls->Add(this->label12);
+			this->Controls->Add(this->textBox7);
+			this->Controls->Add(this->textBox8);
+			this->Controls->Add(this->textBox9);
+			this->Controls->Add(this->label9);
+			this->Controls->Add(this->label10);
+			this->Controls->Add(this->label11);
 			this->Controls->Add(this->textBox6);
 			this->Controls->Add(this->textBox5);
 			this->Controls->Add(this->textBox4);
+			this->Controls->Add(this->label8);
 			this->Controls->Add(this->label7);
+			this->Controls->Add(this->label6);
+			this->Controls->Add(this->rbFECHA);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->button4);
 			this->Controls->Add(this->textBox3);
+			this->Controls->Add(this->pictureBox3);
+			this->Controls->Add(this->button3);
 			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->pictureBox2);
+			this->Controls->Add(this->rbTAMAÑO);
+			this->Controls->Add(this->rbEXTENSION);
+			this->Controls->Add(this->rbNOMBRE);
+			this->Controls->Add(this->button2);
+			this->Controls->Add(this->txtBUSCAR);
 			this->Controls->Add(this->label3);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->listBox1);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->txtRUTA);
-			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->Controls->Add(this->pictureBox1);
 			this->Name = L"MyForm";
-			this->Text = L"Trabajo final";
+			this->Text = L"MyForm";
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	//Boton para escanear la ruta
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-
 		listBox1->Items->Clear();
-		if (!(String::IsNullOrEmpty(txtRUTA->Text)) && is_directory(marshal_as<string>(txtRUTA->Text))) {
-			this->Height = 600;
+		if ((String::IsNullOrEmpty(txtRUTA->Text)) || !(is_directory(marshal_as<string>(txtRUTA->Text)))) {
+			MessageBox::Show("El directorio ingresado no existe o no es un directorio.");
+		}
+		else {
 
 			String ^ ruta = txtRUTA->Text;
-
 			string path = marshal_as<string>(ruta); //CONVERTIR DE String^ A string
+			FX->scan(path); //SCANEAR LA RUTA INDICADA
+			vector<Archivo*> vec = FX->Show_All();
 
-			fileexplorer->scan(path); //SCANEAR LA RUTA INDICADA
-
-			vector<Archivo*> vec = fileexplorer->Gettree_nombre()->Preorden(vec, fileexplorer->Gettree_nombre()->Get_raiz());
-			
-			for each (Archivo* var in vec)
-			{
+			for (Archivo* var : vec) {
 				listBox1->Items->Add(marshal_as<String^>(var->get_nombre()));
 			}
+
+			this->Height = 600;
+			MessageBox::Show("El directorio fue encontrado y abierto con éxito.");
+		}
+
+
+	}
+	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+
+		if (!String::IsNullOrEmpty(txtBUSCAR->Text)) {
+			if (rbNOMBRE->Checked) {
+				String ^ nombre = txtBUSCAR->Text;
+				string name = marshal_as<string>(nombre); //CONVERTIR DE String^ A string
+				vector<Archivo*> vec = FX->Buscar_Nombre(name);
+
+				if (!vec.empty()) {
+					listBox1->Items->Clear();
+					for (Archivo* var : vec) {
+						listBox1->Items->Add(marshal_as<String^>(var->get_ruta()));
+					}
+					MessageBox::Show("Elemento(s) encontrados correctamente.");
+				}
+				else {
+					MessageBox::Show("Elemento(s) NO encontrados.");
+				}
+			}
+			else if (rbEXTENSION->Checked) {
+				String ^ extension = txtBUSCAR->Text;
+				string ex = marshal_as<string>(extension); //CONVERTIR DE String^ A string
+				vector<Archivo*> vec = FX->Buscar_Nombre(ex);
+
+				if (!vec.empty()) {
+					listBox1->Items->Clear();
+					for (Archivo* var : vec) {
+						listBox1->Items->Add(marshal_as<String^>(var->get_ruta()));
+					}
+					MessageBox::Show("Elemento(s) encontrados correctamente.");
+				}
+				else {
+					MessageBox::Show("Elemento(s) NO encontrados.");
+				}
+			}
+			else if (rbTAMAÑO->Checked) {
+				String ^ tamaño = txtBUSCAR->Text;
+				string size = marshal_as<string>(tamaño); //CONVERTIR DE String^ A string
+				vector<Archivo*> vec = FX->Buscar_Nombre(size);
+
+				if (!vec.empty()) {
+					listBox1->Items->Clear();
+					for (Archivo* var : vec) {
+						listBox1->Items->Add(marshal_as<String^>(var->get_ruta()));
+					}
+					MessageBox::Show("Elemento(s) encontrados correctamente.");
+				}
+				else {
+					MessageBox::Show("Elemento(s) NO encontrados.");
+				}
+			}
+			else if (rbFECHA->Checked) {
+				String ^ fecha = txtBUSCAR->Text;
+				string date = marshal_as<string>(fecha); //CONVERTIR DE String^ A string
+				vector<Archivo*> vec = FX->Buscar_Nombre(date);
+
+				if (!vec.empty()) {
+					listBox1->Items->Clear();
+					for (Archivo* var : vec) {
+						listBox1->Items->Add(marshal_as<String^>(var->get_ruta()));
+					}
+					MessageBox::Show("Elemento(s) encontrados correctamente.");
+				}
+				else {
+					MessageBox::Show("Elemento(s) NO encontrados.");
+				}
+			}
+
 		}
 	}
-	private: System::Void listBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-
-
-	}
-	//Boton para ordenar ASCENDENTE
-    private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e) {
-		listBox1->Sorted = true;
-    }
-    };
+	};
 }
