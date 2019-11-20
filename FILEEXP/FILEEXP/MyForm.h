@@ -357,7 +357,7 @@ namespace FILEEXP {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(525, 283);
+			this->label6->Location = System::Drawing::Point(592, 289);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(71, 13);
 			this->label6->TabIndex = 22;
@@ -366,7 +366,7 @@ namespace FILEEXP {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(526, 307);
+			this->label7->Location = System::Drawing::Point(593, 308);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(66, 13);
 			this->label7->TabIndex = 23;
@@ -375,7 +375,7 @@ namespace FILEEXP {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(527, 329);
+			this->label8->Location = System::Drawing::Point(596, 328);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(52, 13);
 			this->label8->TabIndex = 24;
@@ -384,29 +384,32 @@ namespace FILEEXP {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(528, 460);
+			this->label9->Location = System::Drawing::Point(598, 461);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(42, 13);
 			this->label9->TabIndex = 30;
 			this->label9->Text = L"Igual a:";
+			this->label9->Click += gcnew System::EventHandler(this, &MyForm::label9_Click);
 			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(527, 438);
+			this->label10->Location = System::Drawing::Point(599, 439);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(40, 13);
 			this->label10->TabIndex = 29;
 			this->label10->Text = L"Menor:";
+			this->label10->Click += gcnew System::EventHandler(this, &MyForm::label10_Click);
 			// 
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(526, 414);
+			this->label11->Location = System::Drawing::Point(598, 416);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(39, 13);
 			this->label11->TabIndex = 28;
 			this->label11->Text = L"Mayor:";
+			this->label11->Click += gcnew System::EventHandler(this, &MyForm::label11_Click);
 			// 
 			// label12
 			// 
@@ -428,6 +431,7 @@ namespace FILEEXP {
 			this->button5->TabIndex = 35;
 			this->button5->Text = L"ASCENDENTE";
 			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
 			// 
 			// button6
 			// 
@@ -441,61 +445,55 @@ namespace FILEEXP {
 			// checkBox1
 			// 
 			this->checkBox1->AutoSize = true;
-			this->checkBox1->Location = System::Drawing::Point(633, 283);
+			this->checkBox1->Location = System::Drawing::Point(575, 288);
 			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(80, 17);
+			this->checkBox1->Size = System::Drawing::Size(15, 14);
 			this->checkBox1->TabIndex = 37;
-			this->checkBox1->Text = L"checkBox1";
 			this->checkBox1->UseVisualStyleBackColor = true;
 			// 
 			// checkBox2
 			// 
 			this->checkBox2->AutoSize = true;
-			this->checkBox2->Location = System::Drawing::Point(633, 302);
+			this->checkBox2->Location = System::Drawing::Point(575, 308);
 			this->checkBox2->Name = L"checkBox2";
-			this->checkBox2->Size = System::Drawing::Size(80, 17);
+			this->checkBox2->Size = System::Drawing::Size(15, 14);
 			this->checkBox2->TabIndex = 38;
-			this->checkBox2->Text = L"checkBox2";
 			this->checkBox2->UseVisualStyleBackColor = true;
 			// 
 			// checkBox3
 			// 
 			this->checkBox3->AutoSize = true;
-			this->checkBox3->Location = System::Drawing::Point(633, 325);
+			this->checkBox3->Location = System::Drawing::Point(575, 328);
 			this->checkBox3->Name = L"checkBox3";
-			this->checkBox3->Size = System::Drawing::Size(80, 17);
+			this->checkBox3->Size = System::Drawing::Size(15, 14);
 			this->checkBox3->TabIndex = 39;
-			this->checkBox3->Text = L"checkBox3";
 			this->checkBox3->UseVisualStyleBackColor = true;
 			// 
 			// checkBox4
 			// 
 			this->checkBox4->AutoSize = true;
-			this->checkBox4->Location = System::Drawing::Point(633, 414);
+			this->checkBox4->Location = System::Drawing::Point(577, 418);
 			this->checkBox4->Name = L"checkBox4";
-			this->checkBox4->Size = System::Drawing::Size(80, 17);
+			this->checkBox4->Size = System::Drawing::Size(15, 14);
 			this->checkBox4->TabIndex = 40;
-			this->checkBox4->Text = L"checkBox4";
 			this->checkBox4->UseVisualStyleBackColor = true;
 			// 
 			// checkBox5
 			// 
 			this->checkBox5->AutoSize = true;
-			this->checkBox5->Location = System::Drawing::Point(633, 433);
+			this->checkBox5->Location = System::Drawing::Point(577, 437);
 			this->checkBox5->Name = L"checkBox5";
-			this->checkBox5->Size = System::Drawing::Size(80, 17);
+			this->checkBox5->Size = System::Drawing::Size(15, 14);
 			this->checkBox5->TabIndex = 41;
-			this->checkBox5->Text = L"checkBox5";
 			this->checkBox5->UseVisualStyleBackColor = true;
 			// 
 			// checkBox6
 			// 
 			this->checkBox6->AutoSize = true;
-			this->checkBox6->Location = System::Drawing::Point(633, 457);
+			this->checkBox6->Location = System::Drawing::Point(577, 461);
 			this->checkBox6->Name = L"checkBox6";
-			this->checkBox6->Size = System::Drawing::Size(80, 17);
+			this->checkBox6->Size = System::Drawing::Size(15, 14);
 			this->checkBox6->TabIndex = 42;
-			this->checkBox6->Text = L"checkBox6";
 			this->checkBox6->UseVisualStyleBackColor = true;
 			// 
 			// MyForm
@@ -643,7 +641,7 @@ namespace FILEEXP {
 		}
 	}
 	private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
-
+		listBox1->Items->Clear();
 		vector<Archivo*> vec;
 
 
@@ -672,7 +670,7 @@ namespace FILEEXP {
 	}
 
 	private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
-
+		listBox1->Items->Clear();
 		vector<Archivo*> vec;
 
 		string ss = marshal_as<string>(textBox3->Text);
@@ -699,5 +697,14 @@ namespace FILEEXP {
 		}
 	}
 
-	};
+	private: System::Void label11_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+private: System::Void label10_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+private: System::Void label9_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
+	listBox1->Sorted = true;
+}
+};
 }

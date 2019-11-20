@@ -92,7 +92,7 @@ public:
 	}
 	vector<Archivo*>Buscar_Tamaño(long long t) {
 		vector<Archivo*>vec;
-		Sizes_tree->busqueda(t, vec);
+		//Sizes_tree->busqueda(t, vec);
 		return vec;
 	}
 	vector<Archivo*>Buscar_fecha(string f) {

@@ -109,25 +109,7 @@ private:
 			busqueda(node->right, parametro, vec);
 		}
 	}
-	void busqueda_primeraletra(Node* node, R parametro, vector<T>&vec) {
-		if (node == nullptr) {
-			return;
-		}
-		else if (parametro[0] == key(node->elem)[0]) {
-			vec.push_back(node->elem);
-			busqueda_primeraletra(node->left, val, v);
-			busqueda_primeraletra(node->right, val, v);
-		}
-		else if (parametro[0] < key(node->elem)[0]) {
-			busqueda_primeraletra(node->left, val, v);
-		}
-		else {
-			busqueda_primeraletra(node->right, val, v);
-		}
-	}
-	void busqueda_ultimaletra(Node* node, R parametro, vector<T>&vec) {
-		//PENDIENTE
-	}
+
 
 	
 
