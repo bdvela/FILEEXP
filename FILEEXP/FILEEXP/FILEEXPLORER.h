@@ -101,6 +101,35 @@ public:
 		return vec;
 	}
 
-
+	vector<Archivo*>FiltrarPorNombreStart(string name) {
+		vector<Archivo*> proc;
+		Names_tree->filtrarPorNombreStart(name, proc);
+		return proc;
+	}
+	vector<Archivo*>FiltrarPorNombreEnd(string name) {
+		vector<Archivo*> proc;
+		Names_tree->filtrarPorNombreEnd(name, proc);
+		return proc;
+	}
+	vector<Archivo*>FiltrarPorNombreContains(string name) {
+		vector<Archivo*> proc;
+		Names_tree->filtrarPorNombreContains(name, proc);
+		return proc;
+	}
+	vector<Archivo*>FiltrarPorTamañoMayor(long long name) {
+		vector<Archivo*> proc;
+		Names_tree->FiltrarPorTamañoMayor(name, proc);
+		return proc;
+	}
+	vector<Archivo*>FiltrarPorTamañoMenor(long long name) {
+		vector<Archivo*> proc;
+		Names_tree->FiltrarPorTamañoMenor(name, proc);
+		return proc;
+	}
+	vector<Archivo*>FiltrarPorTamañoIgual(long long name) {
+		vector<Archivo*> proc;
+		Names_tree->FiltrarPorTamañoIgual(name, proc);
+		return proc;
+	}
 
 };

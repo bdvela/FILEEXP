@@ -70,18 +70,24 @@ namespace FILEEXP {
 	private: System::Windows::Forms::Label^  label6;
 	private: System::Windows::Forms::Label^  label7;
 	private: System::Windows::Forms::Label^  label8;
-	private: System::Windows::Forms::TextBox^  textBox4;
-	private: System::Windows::Forms::TextBox^  textBox5;
-	private: System::Windows::Forms::TextBox^  textBox6;
-	private: System::Windows::Forms::TextBox^  textBox7;
-	private: System::Windows::Forms::TextBox^  textBox8;
-	private: System::Windows::Forms::TextBox^  textBox9;
+
+
+
+
+
+
 	private: System::Windows::Forms::Label^  label9;
 	private: System::Windows::Forms::Label^  label10;
 	private: System::Windows::Forms::Label^  label11;
 	private: System::Windows::Forms::Label^  label12;
 	private: System::Windows::Forms::Button^  button5;
 	private: System::Windows::Forms::Button^  button6;
+	private: System::Windows::Forms::CheckBox^  checkBox1;
+	private: System::Windows::Forms::CheckBox^  checkBox2;
+	private: System::Windows::Forms::CheckBox^  checkBox3;
+	private: System::Windows::Forms::CheckBox^  checkBox4;
+	private: System::Windows::Forms::CheckBox^  checkBox5;
+	private: System::Windows::Forms::CheckBox^  checkBox6;
 
 
 
@@ -124,18 +130,18 @@ namespace FILEEXP {
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox9 = (gcnew System::Windows::Forms::TextBox());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox2 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox3 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox4 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox5 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox6 = (gcnew System::Windows::Forms::CheckBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
@@ -267,6 +273,7 @@ namespace FILEEXP {
 			this->button3->TabIndex = 14;
 			this->button3->Text = L"FILTRAR";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
 			// textBox2
 			// 
@@ -305,6 +312,7 @@ namespace FILEEXP {
 			this->button4->TabIndex = 18;
 			this->button4->Text = L"FILTRAR";
 			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
 			// 
 			// textBox3
 			// 
@@ -373,48 +381,6 @@ namespace FILEEXP {
 			this->label8->TabIndex = 24;
 			this->label8->Text = L"Contiene:";
 			// 
-			// textBox4
-			// 
-			this->textBox4->Location = System::Drawing::Point(613, 280);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(118, 20);
-			this->textBox4->TabIndex = 25;
-			// 
-			// textBox5
-			// 
-			this->textBox5->Location = System::Drawing::Point(613, 304);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(118, 20);
-			this->textBox5->TabIndex = 26;
-			// 
-			// textBox6
-			// 
-			this->textBox6->Location = System::Drawing::Point(613, 328);
-			this->textBox6->Name = L"textBox6";
-			this->textBox6->Size = System::Drawing::Size(118, 20);
-			this->textBox6->TabIndex = 27;
-			// 
-			// textBox7
-			// 
-			this->textBox7->Location = System::Drawing::Point(614, 459);
-			this->textBox7->Name = L"textBox7";
-			this->textBox7->Size = System::Drawing::Size(118, 20);
-			this->textBox7->TabIndex = 33;
-			// 
-			// textBox8
-			// 
-			this->textBox8->Location = System::Drawing::Point(614, 435);
-			this->textBox8->Name = L"textBox8";
-			this->textBox8->Size = System::Drawing::Size(118, 20);
-			this->textBox8->TabIndex = 32;
-			// 
-			// textBox9
-			// 
-			this->textBox9->Location = System::Drawing::Point(614, 411);
-			this->textBox9->Name = L"textBox9";
-			this->textBox9->Size = System::Drawing::Size(118, 20);
-			this->textBox9->TabIndex = 31;
-			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
@@ -472,23 +438,83 @@ namespace FILEEXP {
 			this->button6->Text = L"DESCENDENTE";
 			this->button6->UseVisualStyleBackColor = true;
 			// 
+			// checkBox1
+			// 
+			this->checkBox1->AutoSize = true;
+			this->checkBox1->Location = System::Drawing::Point(633, 283);
+			this->checkBox1->Name = L"checkBox1";
+			this->checkBox1->Size = System::Drawing::Size(80, 17);
+			this->checkBox1->TabIndex = 37;
+			this->checkBox1->Text = L"checkBox1";
+			this->checkBox1->UseVisualStyleBackColor = true;
+			// 
+			// checkBox2
+			// 
+			this->checkBox2->AutoSize = true;
+			this->checkBox2->Location = System::Drawing::Point(633, 302);
+			this->checkBox2->Name = L"checkBox2";
+			this->checkBox2->Size = System::Drawing::Size(80, 17);
+			this->checkBox2->TabIndex = 38;
+			this->checkBox2->Text = L"checkBox2";
+			this->checkBox2->UseVisualStyleBackColor = true;
+			// 
+			// checkBox3
+			// 
+			this->checkBox3->AutoSize = true;
+			this->checkBox3->Location = System::Drawing::Point(633, 325);
+			this->checkBox3->Name = L"checkBox3";
+			this->checkBox3->Size = System::Drawing::Size(80, 17);
+			this->checkBox3->TabIndex = 39;
+			this->checkBox3->Text = L"checkBox3";
+			this->checkBox3->UseVisualStyleBackColor = true;
+			// 
+			// checkBox4
+			// 
+			this->checkBox4->AutoSize = true;
+			this->checkBox4->Location = System::Drawing::Point(633, 414);
+			this->checkBox4->Name = L"checkBox4";
+			this->checkBox4->Size = System::Drawing::Size(80, 17);
+			this->checkBox4->TabIndex = 40;
+			this->checkBox4->Text = L"checkBox4";
+			this->checkBox4->UseVisualStyleBackColor = true;
+			// 
+			// checkBox5
+			// 
+			this->checkBox5->AutoSize = true;
+			this->checkBox5->Location = System::Drawing::Point(633, 433);
+			this->checkBox5->Name = L"checkBox5";
+			this->checkBox5->Size = System::Drawing::Size(80, 17);
+			this->checkBox5->TabIndex = 41;
+			this->checkBox5->Text = L"checkBox5";
+			this->checkBox5->UseVisualStyleBackColor = true;
+			// 
+			// checkBox6
+			// 
+			this->checkBox6->AutoSize = true;
+			this->checkBox6->Location = System::Drawing::Point(633, 457);
+			this->checkBox6->Name = L"checkBox6";
+			this->checkBox6->Size = System::Drawing::Size(80, 17);
+			this->checkBox6->TabIndex = 42;
+			this->checkBox6->Text = L"checkBox6";
+			this->checkBox6->UseVisualStyleBackColor = true;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(750, 542);
+			this->Controls->Add(this->checkBox6);
+			this->Controls->Add(this->checkBox5);
+			this->Controls->Add(this->checkBox4);
+			this->Controls->Add(this->checkBox3);
+			this->Controls->Add(this->checkBox2);
+			this->Controls->Add(this->checkBox1);
 			this->Controls->Add(this->button6);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->label12);
-			this->Controls->Add(this->textBox7);
-			this->Controls->Add(this->textBox8);
-			this->Controls->Add(this->textBox9);
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->label11);
-			this->Controls->Add(this->textBox6);
-			this->Controls->Add(this->textBox5);
-			this->Controls->Add(this->textBox4);
 			this->Controls->Add(this->label8);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label6);
@@ -616,5 +642,62 @@ namespace FILEEXP {
 
 		}
 	}
+	private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
+
+		vector<Archivo*> vec;
+
+
+
+		string ss = marshal_as<string>(textBox2->Text);
+
+		if (checkBox1->Enabled == true) {
+
+			
+			vec = FX->FiltrarPorNombreStart(ss);
+			
+		}
+		else if (checkBox2->Enabled == true) {
+
+			vec = FX->FiltrarPorNombreEnd(ss);
+		}
+		else if (checkBox3->Enabled == true) {
+			vec = FX->FiltrarPorNombreContains(ss);
+		}
+
+		listBox1->Items->Clear();
+		for (Archivo*var : vec) {
+			
+			listBox1->Items->Add(marshal_as<String^>(var->get_ruta()));
+	   }
+	}
+
+	private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
+
+		vector<Archivo*> vec;
+
+		string ss = marshal_as<string>(textBox3->Text);
+
+		int numero = stoi(ss);
+
+		if (checkBox4->Enabled == true) {
+
+			vec = FX->FiltrarPorTamañoMayor(numero);
+		}
+		else if (checkBox5->Enabled == true) {
+
+			vec = FX->FiltrarPorTamañoMenor(numero);
+		}
+		else if (checkBox6->Enabled == true) {
+			vec = FX->FiltrarPorTamañoIgual(numero);
+		}
+
+		listBox1->Items->Clear();
+
+		for (Archivo*var : vec) {
+			
+			listBox1->Items->Add(marshal_as<String^>(var->get_ruta()));
+		}
+	}
+
 	};
 }

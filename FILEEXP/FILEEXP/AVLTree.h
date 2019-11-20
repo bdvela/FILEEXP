@@ -128,6 +128,10 @@ private:
 	void busqueda_ultimaletra(Node* node, R parametro, vector<T>&vec) {
 		//PENDIENTE
 	}
+
+	
+
+
 public:
 	AVLTree(function<R(T)>key = [](T a) {return a; }) : raiz(nullptr), key(key) {}
 	//----
@@ -142,4 +146,80 @@ public:
 		busqueda(raiz, parametro, v);
 	}
 
+
+	void filtrarPorNombreStart(string name, vector<T>& v)
+	{
+		vector<Archivo*> vec;
+		inorder(vec);
+		v.clear();
+		for each (Archivo* var in vec)
+		{
+			if (var->get_nombre()[0] == name[0])
+				v.push_back(var);
+		}
+	}
+
+	void filtrarPorNombreEnd(string name, vector<T>& v)
+	{
+		vector<Archivo*> vec;
+		inorder(vec);
+		v.clear();
+		for each (Archivo* var in vec)
+		{
+			string st = var->get_nombre();
+			if (var->get_nombre().back() == name.back())
+				v.push_back(var);
+		}
+	}
+
+	void filtrarPorNombreContains(string name, vector<T>& v)
+	{
+		vector<Archivo*> vec;
+		inorder(vec);
+		v.clear();
+		for each (Archivo* var in vec)
+		{
+			string st = var->get_nombre();
+			if (st.find(name) != string::npos)
+				v.push_back(var);
+		}
+	}
+
+
+	void FiltrarPorTamañoMayor(long long tamaño, vector<T>& v)
+	{
+		vector<Archivo*> vec;
+		inorder(vec);
+		v.clear();
+		for each (Archivo* var in vec)
+		{
+			if (var->get_tamaño() > tamaño)
+				v.push_back(var);
+		}
+	}
+
+
+	void FiltrarPorTamañoMenor(long long tamaño, vector<T>& v)
+	{
+		vector<Archivo*> vec;
+		inorder(vec);
+		v.clear();
+		for each (Archivo* var in vec)
+		{
+			if (var->get_tamaño() < tamaño)
+				v.push_back(var);
+		}
+	}
+
+	void FiltrarPorTamañoIgual(long long tamaño, vector<T>& v)
+	{
+		vector<Archivo*> vec;
+		inorder(vec);
+		v.clear();
+		for each (Archivo* var in vec)
+		{
+			if (var->get_tamaño() == tamaño)
+				v.push_back(var);
+		}
+	}
 };
