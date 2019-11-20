@@ -704,13 +704,27 @@ private: System::Void label10_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void label9_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
 private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
-	
-	/*vector<string> vec;
-	for (int i = 0; i < Convert::ToInt32(listBox1->Size); i++) {
-		vec.push_back(marshal_as<string>(listBox1->Items[i]));
+
+	vector<string> vec;
+	for (long long i = 0; i < listBox1->Items->Count; i++) {
+		vec.push_back(marshal_as<string>(listBox1->Items[i]->ToString()));
 	}
-	vec.sort*/
-	listBox1->Sorted = true;
+	listBox1->Items->Clear();
+	string key;
+	int j;
+		for (int i = 1; i < vec.size(); i++) {
+			key = vec[i];
+			j = i - 1;
+			while (j >= 0 && vec[j] > key) {
+				vec[j + 1] = vec[j];
+				j = j - 1;
+			}
+			vec[j + 1] = key;
+	}
+		for (int i = 0; i < vec.size(); i++) {
+			listBox1->Items->Add(marshal_as<String^>(vec[i]));
+		}
+	//listBox1->Sorted = true;
 }
 };
 }
