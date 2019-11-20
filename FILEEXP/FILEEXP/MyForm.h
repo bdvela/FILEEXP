@@ -476,7 +476,7 @@ namespace FILEEXP {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(750, 115);
+			this->ClientSize = System::Drawing::Size(750, 542);
 			this->Controls->Add(this->button6);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->label12);
@@ -597,6 +597,7 @@ namespace FILEEXP {
 				}
 			}
 			else if (rbFECHA->Checked) {
+
 				String ^ fecha = txtBUSCAR->Text;
 				string date = marshal_as<string>(fecha); //CONVERTIR DE String^ A string
 				vector<Archivo*> vec = FX->Buscar_Nombre(date);

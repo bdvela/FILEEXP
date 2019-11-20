@@ -1,6 +1,7 @@
 #pragma once
 #include <functional>
 using namespace std;
+
 template <typename T, typename R = T>
 
 class AVLTree {
