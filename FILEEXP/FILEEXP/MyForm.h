@@ -591,7 +591,7 @@ namespace FILEEXP {
 			else if (rbEXTENSION->Checked) {
 				String ^ extension = txtBUSCAR->Text;
 				string ex = marshal_as<string>(extension); //CONVERTIR DE String^ A string
-				vector<Archivo*> vec = FX->Buscar_Nombre(ex);
+				vector<Archivo*> vec = FX->Buscar_Extension(ex);
 
 				if (!vec.empty()) {
 					listBox1->Items->Clear();
@@ -606,8 +606,8 @@ namespace FILEEXP {
 			}
 			else if (rbTAMAÑO->Checked) {
 				String ^ tamaño = txtBUSCAR->Text;
-				string size = marshal_as<string>(tamaño); //CONVERTIR DE String^ A string
-				vector<Archivo*> vec = FX->Buscar_Nombre(size);
+				long long tam = Convert::ToInt64(tamaño);
+					vector<Archivo*> vec = FX->Buscar_Tamaño(tam);
 
 				if (!vec.empty()) {
 					listBox1->Items->Clear();
@@ -704,6 +704,12 @@ private: System::Void label10_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void label9_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
 private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
+	
+	/*vector<string> vec;
+	for (int i = 0; i < Convert::ToInt32(listBox1->Size); i++) {
+		vec.push_back(marshal_as<string>(listBox1->Items[i]));
+	}
+	vec.sort*/
 	listBox1->Sorted = true;
 }
 };
