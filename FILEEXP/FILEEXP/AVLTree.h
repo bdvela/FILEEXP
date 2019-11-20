@@ -128,7 +128,46 @@ public:
 		busqueda(raiz, parametro, v);
 	}
 
-
+	void buscarNombre(string name, vector<T>& v) {
+		vector<Archivo*> vec;
+		inorder(vec);
+		v.clear();
+		for each (Archivo* var in vec)
+		{
+			if (var->get_nombre() == name)
+				v.push_back(var);
+		}
+	}
+	void buscarExtension(string extension, vector<T>& v) {
+		vector<Archivo*> vec;
+		inorder(vec);
+		v.clear();
+		for each (Archivo* var in vec)
+		{
+			if (var->get_extension() == extension)
+				v.push_back(var);
+		}
+	}
+	void buscarFecha(string fecha, vector<T>& v) {
+		vector<Archivo*> vec;
+		inorder(vec);
+		v.clear();
+		for each (Archivo* var in vec)
+		{
+			if (var->get_fecha() == fecha)
+				v.push_back(var);
+		}
+	}
+	void buscarTamaño(long long tamaño, vector<T>& v) {
+		vector<Archivo*> vec;
+		inorder(vec);
+		v.clear();
+		for each (Archivo* var in vec)
+		{
+			if (var->get_tamaño() == tamaño)
+				v.push_back(var);
+		}
+	}
 	void filtrarPorNombreStart(string name, vector<T>& v)
 	{
 		vector<Archivo*> vec;

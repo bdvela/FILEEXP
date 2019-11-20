@@ -82,22 +82,22 @@ public:
 
 	vector<Archivo*>Buscar_Nombre(string n) {
 		vector<Archivo*>vec;
-		Names_tree->busqueda(n, vec); //BUSCAR POR NOMBRE  Y COPIAR AL VECTOR
+		Names_tree->buscarNombre(n, vec); //BUSCAR POR NOMBRE  Y COPIAR AL VECTOR
 		return vec; //RETORNAMOS EL VECTOR CON EL NODO ENCONTRADO
 	}
 	vector<Archivo*>Buscar_Extension(string e) {
 		vector<Archivo*>vec;
-		Extensions_tree->busqueda(e, vec);
+		Extensions_tree->buscarExtension(e, vec);
 		return vec;
 	}
 	vector<Archivo*>Buscar_Tamaño(long long t) {
 		vector<Archivo*>vec;
-		//Sizes_tree->busqueda(t, vec);
+		Sizes_tree->buscarTamaño(t, vec);
 		return vec;
 	}
 	vector<Archivo*>Buscar_fecha(string f) {
 		vector<Archivo*>vec;
-		Dates_tree->busqueda(f, vec);
+		Dates_tree->buscarFecha(f, vec);
 		return vec;
 	}
 

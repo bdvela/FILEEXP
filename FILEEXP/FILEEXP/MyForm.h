@@ -500,7 +500,7 @@ namespace FILEEXP {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(750, 542);
+			this->ClientSize = System::Drawing::Size(750, 121);
 			this->Controls->Add(this->checkBox6);
 			this->Controls->Add(this->checkBox5);
 			this->Controls->Add(this->checkBox4);
@@ -560,7 +560,7 @@ namespace FILEEXP {
 			vector<Archivo*> vec = FX->Show_All();
 
 			for (Archivo* var : vec) {
-				listBox1->Items->Add(marshal_as<String^>(var->get_nombre()));
+				listBox1->Items->Add(marshal_as<String^>(var->get_ruta()));
 			}
 
 			this->Height = 600;
